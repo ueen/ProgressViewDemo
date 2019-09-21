@@ -13,34 +13,6 @@ class SensibleProgressView: UIView {
     
     private var progressBackgroundView: UIView!
     private var progressContentView: UIView!
-    private var trColor = UIColor.clear
-    private var prColor = UIColor.white
-    private var brWidth: CGFloat = 2
-    
-    @IBInspectable var trackColor: UIColor {
-        get {
-            return trColor
-        }
-        set {
-            trColor = newValue
-        }
-    }
-    @IBInspectable var borderThickness: CGFloat {
-        get {
-            return brWidth
-        }
-        set {
-            brWidth = newValue
-        }
-    }
-    @IBInspectable var progressBarColor: UIColor {
-        get {
-            return prColor
-        }
-        set {
-            prColor = newValue
-        }
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,12 +27,12 @@ class SensibleProgressView: UIView {
     }
     
     func build() {
-        let bgColor = trColor
-        let progressColor = prColor
+        let bgColor = UIColor.clear
+        let progressColor = UIColor.white
         
         backgroundColor = bgColor
         layer.borderColor = progressColor.cgColor
-        layer.borderWidth = brWidth
+        layer.borderWidth = 2
         layer.cornerRadius = frame.size.height / 2
         layer.masksToBounds = true
         
@@ -69,10 +41,12 @@ class SensibleProgressView: UIView {
         progressBackgroundView.backgroundColor = progressColor
         addSubview(progressBackgroundView)
         
+        
         progressContentView = UIView()
         progressContentView.backgroundColor = bgColor
         progressContentView.frame = progressBackgroundView.frame
         addSubview(progressContentView)
+        
     }
 
     
