@@ -6,10 +6,12 @@ I fought hard with the build in ProgressBar, and then iOS13 came out and nothing
 
 ![demo](demo.png)
 
-Installation
+# Installation
+
 Incorporate SensibleProgressView.swift into your Project
 
-Usage
+# Usage
+
 Now you can use SensibleProgressView just like a regular view.
 In InterfaceBuilder position a UIView how you like (set widht and height) and add SensibleProgressView as class
 Now you can make an Outlet to your ViewController and animate it like this
