@@ -9,10 +9,38 @@
 
 import UIKit
 
-class ProgressBar: UIView {
+class SensibleProgressView: UIView {
     
     private var progressBackgroundView: UIView!
     private var progressContentView: UIView!
+    private var trColor = UIColor.clear
+    private var prColor = UIColor.white
+    private var brWidth: CGFloat = 2
+    
+    @IBInspectable var trackColor: UIColor {
+        get {
+            return trColor
+        }
+        set {
+            trColor = newValue
+        }
+    }
+    @IBInspectable var borderThickness: CGFloat {
+        get {
+            return brWidth
+        }
+        set {
+            brWidth = newValue
+        }
+    }
+    @IBInspectable var progressBarColor: UIColor {
+        get {
+            return prColor
+        }
+        set {
+            prColor = newValue
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,12 +55,12 @@ class ProgressBar: UIView {
     }
     
     func build() {
-        let bgColor = UIColor.clear
-        let progressColor = UIColor.white
+        let bgColor = trColor
+        let progressColor = prColor
         
         backgroundColor = bgColor
         layer.borderColor = progressColor.cgColor
-        layer.borderWidth = 2
+        layer.borderWidth = brWidth
         layer.cornerRadius = frame.size.height / 2
         layer.masksToBounds = true
         
@@ -40,18 +68,6 @@ class ProgressBar: UIView {
         progressBackgroundView.frame.size.height = frame.size.height
         progressBackgroundView.backgroundColor = progressColor
         addSubview(progressBackgroundView)
-        
-        func createLabel() -> UILabel {
-            let label = UILabel()
-            label.textAlignment = .center
-            label.font = UIFont.monospacedDigitSystemFont(ofSize: 17, weight: .bold)
-            label.textColor = progressColor
-            label.text = "100%"
-            label.sizeToFit()
-            label.text = "0%"
-            label.center = CGPoint(x: bounds.size.width / 2, y: bounds.size.height / 2)
-            return label
-        }
         
         progressContentView = UIView()
         progressContentView.backgroundColor = bgColor
