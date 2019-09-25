@@ -9,6 +9,7 @@
 
 import UIKit
 
+@IBDesignable
 class SensibleProgressView: UIView {
     
     private var progressBackgroundView: UIView!
