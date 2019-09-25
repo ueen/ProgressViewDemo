@@ -13,11 +13,11 @@ Incorporate SensibleProgressView.swift into your Project
 # Usage
 
 Now you can use SensibleProgressView just like a regular view.
-In InterfaceBuilder position a UIView how you like (set widht and height) and add SensibleProgressView as class now you can edit some propertys in the attributes inspector (tough the sides are squared in interface builder, they will be rounded at runtime)
+In InterfaceBuilder position a UIView how you like (set width and height) and add SensibleProgressView as class now you can edit some propertys in the attributes inspector (tough the sides are squared in interface builder, they will be rounded at runtime)
 Now you can make an Outlet to your ViewController and animate it like this
 
-    sensibleProgressView.progress = 1.0
+    sensibleProgressView.progress = 0.0
     
     let animator = UIViewPropertyAnimator(duration: 30.0, curve: .linear) {
-            self.sensibleProgressView.progress = 0.0}
+            self.sensibleProgressView.progress = 1.0}
     animator.startAnimation()
